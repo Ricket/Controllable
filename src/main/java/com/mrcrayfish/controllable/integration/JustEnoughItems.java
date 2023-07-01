@@ -45,9 +45,9 @@ public class JustEnoughItems
 
             PageNavigation navigation = ((IngredientGridWithNavigationMixin) ingredientGridWithNavigation).getNavigation();
             Widget backButton = ((PageNavigationMixin) navigation).getBackButton();
-            points.add(new WidgetNavigationPoint(backButton.x + backButton.getWidth() / 2.0, backButton.y + backButton.getHeightRealms() / 2.0, backButton));
+            points.add(new WidgetNavigationPoint(backButton.x + backButton.getWidth() / 2.0, backButton.y + backButton.getHeight() / 2.0, backButton));
             Widget nextButton = ((PageNavigationMixin) navigation).getNextButton();
-            points.add(new WidgetNavigationPoint(nextButton.x + nextButton.getWidth() / 2.0, nextButton.y + nextButton.getHeightRealms() / 2.0, nextButton));
+            points.add(new WidgetNavigationPoint(nextButton.x + nextButton.getWidth() / 2.0, nextButton.y + nextButton.getHeight() / 2.0, nextButton));
         }
         return points;
     }

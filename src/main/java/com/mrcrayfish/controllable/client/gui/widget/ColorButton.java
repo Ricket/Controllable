@@ -60,9 +60,9 @@ public class ColorButton extends Button
     }
 
     @Override
-    public void renderButton(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
+    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
     {
-        super.renderButton(matrixStack, mouseX, mouseY, partialTicks);
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
         RenderSystem.disableTexture();
         RenderSystem.disableDepthTest();
         fill(matrixStack, this.x + 4, this.y + 4, this.x + 16, this.y + 16, 0xFF000000);

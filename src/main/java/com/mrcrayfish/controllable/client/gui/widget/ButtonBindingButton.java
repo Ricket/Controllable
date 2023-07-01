@@ -29,9 +29,9 @@ public class ButtonBindingButton extends Button
     }
 
     @Override
-    public void renderButton(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
+    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
     {
-        super.renderButton(matrixStack, mouseX, mouseY, partialTicks);
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
 
         Controller controller = Controllable.getController();
         if(controller == null)

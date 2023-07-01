@@ -120,8 +120,8 @@ public class RadialItemList extends ExtendedList<RadialItemList.ButtonBindingEnt
         @Override
         public void render(MatrixStack matrixStack, int slotIndex, int top, int left, int listWidth, int slotHeight, int mouseX, int mouseY, boolean hovered, float partialTicks)
         {
-            RadialItemList.this.minecraft.fontRenderer.func_243248_b(matrixStack, this.label, left + 5, top + 5, 0xFFFFFF);
-            RadialItemList.this.minecraft.fontRenderer.func_243248_b(matrixStack, this.description, left + 5, top + 18, 0xFFFFFF);
+            RadialItemList.this.minecraft.fontRenderer.drawText(matrixStack, this.label, left + 5, top + 5, 0xFFFFFF);
+            RadialItemList.this.minecraft.fontRenderer.drawText(matrixStack, this.description, left + 5, top + 18, 0xFFFFFF);
             this.colorButton.visible = RadialItemList.this.getSelected() == this;
             this.colorButton.x = left + RadialItemList.this.getRowWidth() - 78;
             this.colorButton.y = top + 6;

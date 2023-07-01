@@ -1118,7 +1118,7 @@ public class ControllerInput
             if(widget == null || widget.isHovered() || !widget.visible || !widget.active)
                 continue;
             int posX = widget.x + widget.getWidth() / 2;
-            int posY = widget.y + widget.getHeightRealms() / 2;
+            int posY = widget.y + widget.getHeight() / 2;
             points.add(new WidgetNavigationPoint(posX, posY, widget));
         }
 

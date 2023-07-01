@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.7.33'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
@@ -21,10 +21,13 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 mixin {
     add sourceSets.main, "controllable.refmap.json"
+    debug = true
+    //debug.verbose = true
+    //debug.export = true
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
     
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -83,9 +86,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
-    implementation fg.deobf("mezz.jei:jei-1.16.5:7.7.1.132")
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+    implementation fg.deobf("mezz.jei:jei-1.16.5:7.8.0.1009")
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 jar {

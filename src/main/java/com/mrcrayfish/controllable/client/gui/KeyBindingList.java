@@ -124,7 +124,7 @@ public class KeyBindingList extends AbstractOptionList<KeyBindingList.Entry>
         {
             int labelX = (int) (KeyBindingList.this.minecraft.currentScreen.width / 2F - this.labelWidth / 2F);
             int labelY = y + itemHeight - 9 - 2;
-            KeyBindingList.this.minecraft.fontRenderer.func_243248_b(matrixStack, this.label, labelX, labelY, 0xFFFFFFFF);
+            KeyBindingList.this.minecraft.fontRenderer.drawText(matrixStack, this.label, labelX, labelY, 0xFFFFFFFF);
         }
     }
 
@@ -180,7 +180,7 @@ public class KeyBindingList extends AbstractOptionList<KeyBindingList.Entry>
         @SuppressWarnings("ConstantConditions")
         public void render(MatrixStack matrixStack, int x, int y, int left, int width, int p_230432_6_, int mouseX, int mouseY, boolean selected, float partialTicks)
         {
-            KeyBindingList.this.minecraft.fontRenderer.func_243246_a(matrixStack, this.label, left - 15, y + 6, 0xFFFFFF);
+            KeyBindingList.this.minecraft.fontRenderer.drawTextWithShadow(matrixStack, this.label, left - 15, y + 6, 0xFFFFFF);
             this.addBinding.x = left + width - 37;
             this.addBinding.y = y;
             this.addBinding.render(matrixStack, mouseX, mouseY, partialTicks);

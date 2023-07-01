@@ -186,7 +186,7 @@ public class ButtonBindingScreen extends ButtonBindingListMenuScreen
         public void render(MatrixStack matrixStack, int x, int y, int left, int width, int p_230432_6_, int mouseX, int mouseY, boolean selected, float partialTicks)
         {
             int color = this.binding.isConflictingContext() ? TextFormatting.RED.getColor() : TextFormatting.WHITE.getColor();
-            ButtonBindingScreen.this.minecraft.fontRenderer.func_243246_a(matrixStack, this.label, left, y + 6, color);
+            ButtonBindingScreen.this.minecraft.fontRenderer.drawTextWithShadow(matrixStack, this.label, left, y + 6, color);
             this.bindingButton.x = left + width - 42;
             this.bindingButton.y = y;
             this.bindingButton.render(matrixStack, mouseX, mouseY, partialTicks);

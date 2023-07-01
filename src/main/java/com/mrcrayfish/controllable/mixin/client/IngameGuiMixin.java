@@ -18,7 +18,7 @@ public class IngameGuiMixin
     /**
      * Fixes selected item name rendering not being offset by console hotbar
      */
-    @Inject(method = "func_238453_b_", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;pushMatrix()V", shift = At.Shift.AFTER))
+    @Inject(method = "renderItemName", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;pushMatrix()V", shift = At.Shift.AFTER))
     private void afterPushMatrix(MatrixStack matrixStack, CallbackInfo ci)
     {
         if(Config.CLIENT.options.consoleHotbar.get())

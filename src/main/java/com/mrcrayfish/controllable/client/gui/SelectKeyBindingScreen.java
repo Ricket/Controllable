@@ -22,7 +22,9 @@ public class SelectKeyBindingScreen extends KeyBindingListMenuScreen
     public SelectKeyBindingScreen(Screen parent)
     {
         super(parent, new TranslationTextComponent("controllable.gui.title.select_key_bindings"), 22);
-        this.setSubTitle(new TranslationTextComponent("controllable.gui.note").mergeStyle(TextFormatting.RED).append(new TranslationTextComponent("controllable.gui.key_bind_note").mergeStyle(TextFormatting.GRAY)));
+        this.setSubTitle(new TranslationTextComponent("controllable.gui.note")
+                .mergeStyle(TextFormatting.RED)
+                .appendSibling(new TranslationTextComponent("controllable.gui.key_bind_note").mergeStyle(TextFormatting.GRAY)));
     }
 
     @Override

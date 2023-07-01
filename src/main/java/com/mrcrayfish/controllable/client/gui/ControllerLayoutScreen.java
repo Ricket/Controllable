@@ -339,7 +339,7 @@ public class ControllerLayoutScreen extends Screen
     {
         for(IReorderingProcessor s : font.trimStringToWidth(component, width))
         {
-            font.func_238407_a_(matrixStack, s, (float) (x - font.func_243245_a(s) / 2.0), y, color);
+            font.drawTextWithShadow(matrixStack, s, (float) (x - font.func_243245_a(s) / 2.0), y, color);
             y += font.FONT_HEIGHT;
         }
     }
