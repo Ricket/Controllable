@@ -9,13 +9,9 @@ import org.lwjgl.input.Mouse;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 
-/**
- * Author: MrCrayfish
- */
 @Mixin(Minecraft.class)
-public class MinecraftMixin
-{
-    @ModifyArg(method = "processKeyBinds", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;sendClickBlockToController(Z)V"))
+public class MinecraftLittleTilesMixin {
+    @ModifyArg(method = "processKeyBinds", at = @At(value = "INVOKE", target = "Lcom/creativemd/littletiles/client/event/InputEventHandler;onHoldClick(Z)V"))
     private boolean sendClickBlockToController(boolean leftClick)
     {
         return leftClick || isLeftClicking();

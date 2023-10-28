@@ -12,6 +12,7 @@ import java.util.Set;
 public class ControllableMixinPlugin implements IMixinConfigPlugin
 {
     private boolean optifineLoaded;
+    private boolean littleTilesLoaded;
 
     @Override
     public void onLoad(String mixinPackage)
@@ -25,6 +26,16 @@ public class ControllableMixinPlugin implements IMixinConfigPlugin
         {
             this.optifineLoaded = false;
         }
+
+        try
+        {
+            Class.forName("com.creativemd.littletiles.LittleTilesTransformer");
+            this.littleTilesLoaded = true;
+        }
+        catch (ClassNotFoundException e)
+        {
+            this.littleTilesLoaded = false;
+        }
     }
 
     @Override
@@ -36,7 +47,19 @@ public class ControllableMixinPlugin implements IMixinConfigPlugin
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName)
     {
-        return this.optifineLoaded ? !mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.GameRendererMixin") : !mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.OptifineGameRendererMixin");
+        if (mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.GameRendererMixin")) {
+            return !optifineLoaded;
+        }
+        if (mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.OptifineGameRendererMixin")) {
+            return optifineLoaded;
+        }
+        if (mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.MinecraftMixin")) {
+            return !littleTilesLoaded;
+        }
+        if (mixinClassName.equals("com.mrcrayfish.controllable.mixin.client.MinecraftLittleTilesMixin")) {
+            return littleTilesLoaded;
+        }
+        return true;
     }
 
     @Override

@@ -13,6 +13,7 @@
         "client.OptifineGameRendererMixin",
         "client.IngameGuiMixin",
         "client.MinecraftMixin",
+        "client.MinecraftLittleTilesMixin",
         "client.RecipeBookGuiMixin",
         "client.RecipeBookPageAccessor",
         "client.RecipeBookPageMixin",
