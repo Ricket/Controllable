@@ -853,8 +853,8 @@ public class ControllerInput
     {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution resolution = new ScaledResolution(mc);
-        int mouseX = (int) (this.targetMouseX * (double) resolution.getScaledWidth() / (double) mc.displayWidth);
-        int mouseY = (int) (this.targetMouseY * (double) resolution.getScaledHeight() / (double) mc.displayHeight);
+        int mouseX = getMouseX();
+        int mouseY = getMouseY();
 
         List<NavigationPoint> points = this.gatherNavigationPoints(screen);
 
