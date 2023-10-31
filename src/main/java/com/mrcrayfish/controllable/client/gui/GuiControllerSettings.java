@@ -12,7 +12,7 @@ import net.minecraft.client.resources.I18n;
  */
 public class GuiControllerSettings extends GuiScreen
 {
-    private static final ControllableOption[] CONTROLLABLE_OPTIONS = new ControllableOption[]{ControllerOptions.FORCE_FEEDBACK, ControllerOptions.AUTO_SELECT, ControllerOptions.RENDER_MINI_PLAYER, ControllerOptions.VIRTUAL_MOUSE, ControllerOptions.CONSOLE_HOTBAR, ControllerOptions.CONTROLLER_TYPE, ControllerOptions.CURSOR_TYPE, ControllerOptions.INVERT_LOOK, ControllerOptions.DEAD_ZONE, ControllerOptions.ROTATION_SPEED, ControllerOptions.MOUSE_SPEED};
+    private static final ControllableOption[] CONTROLLABLE_OPTIONS = new ControllableOption[]{ControllerOptions.FORCE_FEEDBACK, ControllerOptions.AUTO_SELECT, ControllerOptions.RENDER_MINI_PLAYER, ControllerOptions.VIRTUAL_MOUSE, ControllerOptions.CONSOLE_HOTBAR, ControllerOptions.CONTROLLER_TYPE, ControllerOptions.CURSOR_TYPE, ControllerOptions.INVERT_LOOK, ControllerOptions.INVERT_MOUSE_GUI, ControllerOptions.DEAD_ZONE, ControllerOptions.ROTATION_SPEED, ControllerOptions.MOUSE_SPEED};
 
     private GuiScreen previous;
 

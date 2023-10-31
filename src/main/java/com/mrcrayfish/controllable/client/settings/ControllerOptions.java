@@ -89,6 +89,14 @@ public class ControllerOptions
         return I18n.format("controllable.options.invertLook") + ": " + (value ? I18n.format("options.on") : I18n.format("options.off"));
     });
 
+    public static final ControllableOptionBoolean INVERT_MOUSE_GUI = new ControllableOptionBoolean("controllable.options.invertMouseGui", () -> {
+        return Controllable.getOptions().invertMouseGui;
+    }, value -> {
+        Controllable.getOptions().invertMouseGui = value;
+    }, value -> {
+        return I18n.format("controllable.options.invertMouseGui") + ": " + (value ? I18n.format("options.on") : I18n.format("options.off"));
+    });
+
     public static final ControllableOptionSlider DEAD_ZONE = new ControllableOptionSlider("controllable.options.deadZone", 0.01F, 0.0F, 1.0F, () -> {
        return Controllable.getOptions().deadZone;
     }, value -> {
@@ -144,6 +152,7 @@ public class ControllerOptions
     private CursorType cursorType = CursorType.LIGHT;
     private ControllerType controllerType = ControllerType.DEFAULT;
     private boolean invertLook = false;
+    private boolean invertMouseGui = false;
     private double deadZone = 0.15;
     private double rotationSpeed = 25.0;
     private double mouseSpeed = 30.0;
@@ -205,6 +214,9 @@ public class ControllerOptions
                         case "invertLook":
                             this.invertLook = Boolean.valueOf(value);
                             break;
+                        case "invertMouseGui":
+                            this.invertMouseGui = Boolean.valueOf(value);
+                            break;
                         case "deadZone":
                             this.deadZone = Double.parseDouble(value);
                             break;
@@ -250,6 +262,7 @@ public class ControllerOptions
             writer.println("cursorType:" + this.cursorType.getName());
             writer.println("controllerType:" + this.controllerType.getName());
             writer.println("invertLook:" + this.invertLook);
+            writer.println("invertMouseGui:" + this.invertMouseGui);
             writer.println("deadZone:" + FORMAT.format(this.deadZone));
             writer.println("rotationSpeed:" + FORMAT.format(this.rotationSpeed));
             writer.println("mouseSpeed:" + FORMAT.format(this.mouseSpeed));
@@ -298,6 +311,11 @@ public class ControllerOptions
     public boolean isInvertLook()
     {
         return invertLook;
+    }
+
+    public boolean isInvertMouseGui()
+    {
+        return invertMouseGui;
     }
 
     public double getDeadZone()

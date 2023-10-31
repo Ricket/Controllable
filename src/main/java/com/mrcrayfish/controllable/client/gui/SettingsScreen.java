@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
  */
 public class SettingsScreen extends GuiScreen
 {
-    private static final ControllableOption[] OPTIONS = new ControllableOption[]{ControllerOptions.AUTO_SELECT, ControllerOptions.RENDER_MINI_PLAYER, ControllerOptions.VIRTUAL_MOUSE, ControllerOptions.CONSOLE_HOTBAR, ControllerOptions.CONTROLLER_TYPE, ControllerOptions.CURSOR_TYPE, ControllerOptions.INVERT_LOOK, ControllerOptions.DEAD_ZONE, ControllerOptions.ROTATION_SPEED, ControllerOptions.MOUSE_SPEED, ControllerOptions.SHOW_ACTIONS, ControllerOptions.QUICK_CRAFT};
+    private static final ControllableOption[] OPTIONS = new ControllableOption[]{ControllerOptions.AUTO_SELECT, ControllerOptions.RENDER_MINI_PLAYER, ControllerOptions.VIRTUAL_MOUSE, ControllerOptions.CONSOLE_HOTBAR, ControllerOptions.CONTROLLER_TYPE, ControllerOptions.CURSOR_TYPE, ControllerOptions.INVERT_LOOK, ControllerOptions.INVERT_MOUSE_GUI, ControllerOptions.DEAD_ZONE, ControllerOptions.ROTATION_SPEED, ControllerOptions.MOUSE_SPEED, ControllerOptions.SHOW_ACTIONS, ControllerOptions.QUICK_CRAFT};
     private final GuiScreen parentScreen;
     private IToolTip hoveredTooltip;
     private int hoveredCounter;

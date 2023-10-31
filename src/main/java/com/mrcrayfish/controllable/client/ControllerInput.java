@@ -1078,6 +1078,10 @@ public class ControllerInput
         }
         else
         {
+            if (Controllable.getOptions().isInvertMouseGui()) {
+                Minecraft mc = Minecraft.getMinecraft();
+                mouseY = mc.displayHeight - mouseY;
+            }
             Mouse.setCursorPosition((int) mouseX, (int) mouseY);
             this.preventReset = true;
         }
@@ -1145,6 +1149,10 @@ public class ControllerInput
         if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && this.lastUse > 0)
         {
             mouseY = this.virtualMouseY;
+        }
+        else if (Controllable.getOptions().isInvertMouseGui())
+        {
+            mouseY = mc.displayHeight - mouseY;
         }
         ScaledResolution resolution = new ScaledResolution(mc);
         return (int) (mouseY * (double) resolution.getScaledHeight() / (double) mc.displayHeight);
