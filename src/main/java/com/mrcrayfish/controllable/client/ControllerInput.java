@@ -172,6 +172,10 @@ public class ControllerInput
                         mouseX = this.virtualMouseX;
                         mouseY = this.virtualMouseY;
                     }
+                    else if (Controllable.getOptions().isInvertMouseGui())
+                    {
+                        mouseY = mc.displayHeight - mouseY;
+                    }
                     this.prevTargetMouseX = this.targetMouseX = (int) mouseX;
                     this.prevTargetMouseY = this.targetMouseY = (int) mouseY;
                 }
