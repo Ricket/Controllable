@@ -81,6 +81,14 @@ public class ControllerOptions
         return I18n.format("controllable.options.controllerType") + ": " + I18n.format("controllable.controller." + value.getName());
     });
 
+    public static final ControllableOptionBoolean ALWAYS_CONTROLLER_MODE = new ControllableOptionBoolean("controllable.options.alwaysControllerMode", () -> {
+        return Controllable.getOptions().alwaysControllerMode;
+    }, value -> {
+        Controllable.getOptions().alwaysControllerMode = value;
+    }, value -> {
+        return I18n.format("controllable.options.alwaysControllerMode") + ": " + (value ? I18n.format("options.on") : I18n.format("options.off"));
+    });
+
     public static final ControllableOptionBoolean INVERT_LOOK = new ControllableOptionBoolean("controllable.options.invertLook", () -> {
         return Controllable.getOptions().invertLook;
     }, value -> {
@@ -146,13 +154,14 @@ public class ControllerOptions
     private File optionsFile;
     private boolean forceFeedback = true;
     private boolean autoSelect = true;
-    private boolean renderMiniPlayer = true;
-    private boolean virtualMouse = true;
+    private boolean renderMiniPlayer = false;
+    private boolean virtualMouse = false;
     private boolean consoleHotbar = false;
     private CursorType cursorType = CursorType.LIGHT;
     private ControllerType controllerType = ControllerType.DEFAULT;
+    private boolean alwaysControllerMode = true;
     private boolean invertLook = false;
-    private boolean invertMouseGui = false;
+    private boolean invertMouseGui = true;
     private double deadZone = 0.15;
     private double rotationSpeed = 25.0;
     private double mouseSpeed = 30.0;
@@ -306,6 +315,10 @@ public class ControllerOptions
     public ControllerType getControllerType()
     {
         return controllerType;
+    }
+
+    public boolean isAlwaysControllerMode() {
+        return alwaysControllerMode;
     }
 
     public boolean isInvertLook()

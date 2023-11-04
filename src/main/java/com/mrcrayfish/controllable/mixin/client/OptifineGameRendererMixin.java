@@ -24,7 +24,7 @@ public class OptifineGameRendererMixin
     {
         Object[] params = args.get(1);
         ControllerInput input = Controllable.getInput();
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && input.getLastUse() > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && input.isControllerInUse())
         {
             Minecraft minecraft = Minecraft.getMinecraft();
             ScaledResolution resolution = new ScaledResolution(minecraft);

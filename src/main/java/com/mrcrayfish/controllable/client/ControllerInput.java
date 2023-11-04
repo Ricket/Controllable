@@ -105,12 +105,7 @@ public class ControllerInput
 
     public boolean isControllerInUse()
     {
-        return this.lastUse > 0;
-    }
-
-    public int getLastUse()
-    {
-        return this.lastUse;
+        return this.lastUse > 0 || Controllable.getOptions().isAlwaysControllerMode();
     }
 
     public void resetLastUse()
@@ -190,7 +185,7 @@ public class ControllerInput
                 this.setControllerInUse();
             }
 
-            if(this.lastUse <= 0)
+            if(!isControllerInUse())
             {
                 this.mouseSpeedX = 0F;
                 this.mouseSpeedY = 0F;
@@ -291,7 +286,7 @@ public class ControllerInput
     @SubscribeEvent(receiveCanceled = true)
     public void onRenderScreen(GuiScreenEvent.DrawScreenEvent.Post event)
     {
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && lastUse > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && isControllerInUse())
         {
             GlStateManager.pushMatrix();
             {
@@ -335,7 +330,7 @@ public class ControllerInput
         ScaledResolution resolution = new ScaledResolution(mc);
         double mouseX = this.virtualMouseX * (double) resolution.getScaledWidth() / (double) mc.displayWidth;
         double mouseY = this.virtualMouseY * (double) resolution.getScaledHeight() / (double) mc.displayHeight;
-        if(mc.currentScreen != null && this.lastUse > 0)
+        if(mc.currentScreen != null && isControllerInUse())
         {
             //Yeah it's not possible to find lists in the GUI unlike 1.16
             /*GuiButton hoveredListener = mc.currentScreen.buttonList.stream().filter(o -> o.isMouseOver(mouseX, mouseY)).findFirst().orElse(null);
@@ -1134,7 +1129,7 @@ public class ControllerInput
     {
         Minecraft mc = Minecraft.getMinecraft();
         double mouseX = Mouse.getX();
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && this.lastUse > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && isControllerInUse())
         {
             mouseX = this.virtualMouseX;
         }
@@ -1146,7 +1141,7 @@ public class ControllerInput
     {
         Minecraft mc = Minecraft.getMinecraft();
         double mouseY = Mouse.getY();
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && this.lastUse > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && isControllerInUse())
         {
             mouseY = this.virtualMouseY;
         }

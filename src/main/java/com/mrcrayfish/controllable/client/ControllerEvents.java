@@ -18,24 +18,24 @@ public class ControllerEvents
     @SubscribeEvent(receiveCanceled = true)
     public void onPlayerUsingItem(LivingEntityUseItemEvent.Tick event)
     {
-        if(event.getEntity() != Minecraft.getMinecraft().player)
+        if (event.getEntity() != Minecraft.getMinecraft().player)
         {
             return;
         }
 
-        if(!Controllable.getOptions().useForceFeedback())
+        if (!Controllable.getOptions().useForceFeedback())
         {
             return;
         }
 
         /* Stops vibration from running because controller is not in use */
-        if(Controllable.getInput().getLastUse() <= 0)
+        if (!Controllable.getInput().isControllerInUse())
         {
             return;
         }
 
         Controller controller = Controllable.getController();
-        if(controller != null)
+        if (controller != null)
         {
             float magnitudeFactor = 0.5F;
             EnumAction action = event.getItem().getItemUseAction();

@@ -26,7 +26,7 @@ public class GameRendererMixin
     private void drawScreen(Args args)
     {
         ControllerInput input = Controllable.getInput();
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && input.getLastUse() > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && Controllable.getInput().isControllerInUse())
         {
             Minecraft minecraft = Minecraft.getMinecraft();
             ScaledResolution resolution = new ScaledResolution(minecraft);

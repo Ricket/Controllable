@@ -34,7 +34,7 @@ public class Hooks
                 isLeftClicking = true;
             }
         }
-        boolean usingVirtualMouse = (Controllable.getOptions().isVirtualMouse() && Controllable.getInput().getLastUse() > 0);
+        boolean usingVirtualMouse = (Controllable.getOptions().isVirtualMouse() && Controllable.getInput().isControllerInUse());
         return mc.currentScreen == null && isLeftClicking && (Mouse.isGrabbed() || usingVirtualMouse);
     }
 
@@ -97,7 +97,7 @@ public class Hooks
     public static void drawScreen(GuiScreen screen, int mouseX, int mouseY, float partialTicks)
     {
         ControllerInput input = Controllable.getInput();
-        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && input.getLastUse() > 0)
+        if(Controllable.getController() != null && Controllable.getOptions().isVirtualMouse() && input.isControllerInUse())
         {
             Minecraft mc = Minecraft.getMinecraft();
             mouseX = (int) (input.getVirtualMouseX() * screen.width / mc.displayWidth);
